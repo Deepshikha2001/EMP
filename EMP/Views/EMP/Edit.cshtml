@@ -1,0 +1,37 @@
+﻿
+@model EMP.Models.Employee
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+
+<div classs="container">
+    <div class="row">
+        <div class="col-6 offset-3">
+            <div class="card">
+                <div class="card-header">
+                    <h1 class="text-center text-primary"> Edit Employee</h1>
+                </div>
+                <div class="card-body">
+                    <form method="post" asp-action="Edit">
+                        <div class="form-group">
+                            <label asp-for="Name"></label>
+                            <input type="hidden" asp-for="Id"/>
+                            <input type="text" asp-for="Name" class="form-control" placeholder="Enter Employee Name" />
+                            <label asp-for="City"></label>
+                            <input type="text" asp-for="City" class="form-control" placeholder="Enter City"/>
+                            <label asp-for="State"></label>
+                            <input type="text" asp-for="State" class="form-control" placeholder="Enter State"/>
+                            <label asp-for="Salary"></label>
+                            <input type="text" asp-for="Salary" class="form-control" placeholder="Enter Salary"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="submit" class="btn btn-sm btn-success float-end mt-2 p-2" />
+                            <a class="btn btn-sm btn-outline-danger float-end me-1 mt-2 p-2" asp-controller="EMP" asp-action="Index">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

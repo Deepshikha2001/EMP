@@ -1,0 +1,44 @@
+﻿@model IEnumerable<EMP.Models.Employee>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="container">
+    <div class=" row">
+        <div class="col-8 offset-2">
+            <div class="container p-2" style="background-color:#0aca0e17 ;">
+            <h1 class="text-center text-primary"> Employee Record</h1>
+                <a class="btn btn-sm btn-success m-1 " asp-controller="EMP" asp-action="Create"> +Add Employee</a>
+            </div>
+           
+            <p class="text-center text-success fw-bold">@TempData["error"]</p>
+            <table class="table table-responsive "> 
+                
+                <tr class="text-center">
+                    <th class="fw-bold">EmployeeId</th>
+                    <th>Name</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Salary</th>
+                   
+                </tr>
+                @foreach(var d in Model)
+                {
+                    <tr class="text-center">
+                        <td class="fw-bold">@d.Id</td>
+                        <td>@d.Name</td>
+                        <td>@d.City</td>
+                        <td>@d.State</td>
+                        <td>@d.Salary</td>
+                        <td>
+                            <a class="btn btn-sm btn-warning " asp-controller="EMP" asp-action="Edit" asp-route-id="@d.Id">Edit</a>
+                        </td><td>
+                            <a class="btn btn-sm btn-danger " asp-controller="EMP" asp-action="Delete" asp-route-id="@d.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>
